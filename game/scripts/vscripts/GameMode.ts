@@ -1,7 +1,7 @@
 import { reloadable } from "./lib/tstl-utils";
 import "./modifiers/modifier_panic";
 
-const heroSelectionTime = 10;
+const heroSelectionTime = 3;
 
 declare global {
     interface CDOTAGamerules {
@@ -26,13 +26,13 @@ export class GameMode {
         ListenToGameEvent("npc_spawned", event => this.OnNpcSpawned(event), undefined);
     }
 
-    private configure(): void {
-        GameRules.SetCustomGameTeamMaxPlayers(DOTATeam_t.DOTA_TEAM_GOODGUYS, 3);
-        GameRules.SetCustomGameTeamMaxPlayers(DOTATeam_t.DOTA_TEAM_BADGUYS, 3);
+    // private configure(): void {
+    //     GameRules.SetCustomGameTeamMaxPlayers(DOTATeam_t.DOTA_TEAM_GOODGUYS, 3);
+    //     GameRules.SetCustomGameTeamMaxPlayers(DOTATeam_t.DOTA_TEAM_BADGUYS, 3);
 
-        GameRules.SetShowcaseTime(0);
-        GameRules.SetHeroSelectionTime(heroSelectionTime);
-    }
+    //     GameRules.SetShowcaseTime(0);
+    //     GameRules.SetHeroSelectionTime(heroSelectionTime);
+    // }
 
     public OnStateChange(): void {
         const state = GameRules.State_Get();
